@@ -23,7 +23,7 @@ rm -rf libneopixel/usr
 mkdir -p libneopixel/usr/lib
 cp ../*bin libneopixel/usr/lib/
 cp ../*so libneopixel/usr//lib/
-cp  ../am335x/app_loader/lib/*.so libneopixel/usr/lib/
+cp  ../am335x/app_loader/lib/libneopixel*.so libneopixel/usr/lib/
 ln libneopixel/usr/lib/libneopixel.so libneopixel/usr/lib/libneopixel.so.1 
 sed "s/%DATE%/$version/g" libneopixel/CONTROL/control.template > libneopixel/CONTROL/control
 
