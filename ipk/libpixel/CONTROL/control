@@ -1,5 +1,5 @@
 Package: libpixel
-Version: 1.0-20140531-r0
+Version: 1.0-20000101001614
 Description: Light weight library to control WS2811/WS2812 based LEDS and LED Strips with your BeagleBone Black
 Architecture: armv7a
 Section: extra
