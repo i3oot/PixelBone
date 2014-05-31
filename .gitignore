@@ -4,6 +4,8 @@
 *.o
 *.a
 *.bin
+*.so
+*.ipk
 pcb/*.b[^r][^d]
 pcb/*.p[^c][^b]
 rgb-test
