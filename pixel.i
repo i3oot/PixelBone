@@ -7,5 +7,6 @@
 #define __attribute__(x)
 
 /* Parse the header file to generate wrappers */
+%include "stdint.i"
 %include "pixel.hpp"
  
