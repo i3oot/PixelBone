@@ -20,3 +20,6 @@ udp-rx
 opc-rx
 .cproject
 .project
+am335x/app_loader/lib/
+ipk/libpixel/CONTROL/control
+ipk/libpixel-dev/CONTROL/control
