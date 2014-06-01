@@ -1,97 +1,34 @@
-![Testing PixelBone](https://lh3.googleusercontent.com/-de4gV0F2_Gk/U1vb6bDet1I/AAAAAAAACJg/mGFfGTMWo4c/w1084-h813-no/IMG_20140426_121532.jpg)
+# Abstract
+Libneopixel gives you *dead easy* api access to [WS2811](http://www.adafruit.com/datasheets/WS2811.pdf)-based LED strips on your [Beagle Bone Black](http://beagleboard.org/Products/BeagleBone+Black) running the [Armstrong Distribution](http://www.angstrom-distribution.org/). It allows you to drive your LED strip with C++ or Python code.  
 
-#DANGER!
-
-This code works with the PRU units on the BeagleBone and can easily
-cause *hard crashes*.  It is still being debugged and developed.
-Be careful hot-plugging things into the headers -- it is possible to
-damage the pin drivers and cause problems in the ARM, especially if
-there are +5V signals involved.
-
+Supported LED Strips are:
+1. [NeoPixel Digital RGB LED Strip 144 LED](http://www.adafruit.com/products/1506)
+2. [NeoPixel Digital RGB LED Weatherproof Strip 60 LED](http://www.adafruit.com/products/1461)
+3. [NeoPixel Stick](http://www.adafruit.com/products/1426)
+4. [NeoPixel Ring](http://www.adafruit.com/products/1463)
+other WS2811-based LED strips will propably work too.
 
 #Overview
 
-This is a modified version of the LEDscape library designed to control a single chain of WS2811-based LED modules from a BeagleBone (Black). The timing has been updated and verified to work with both WS2812 and WS2812b chips. This version of the library uses a single PRU on the BeagleBone. This allows sending at about 60fps to strings of 512 pixels or at ~120fps for 256 pixels.
+This library is heavily based on the PixelBone library wich in turn is based on the LEDscape library. It is designed to control a single chain of WS2811-based LED modules from a BeagleBone Black. The timing has been updated and verified to work with both WS2812 and WS2812b chips. This version of the library uses a single PRU on the BeagleBone. This allows sending at about 60fps to strings of 512 pixels or at ~120fps for 256 pixels.
 
 The bit-unpacking is handled by the PRU, which allows PixelBone to take almost no cpu time to run, freeing up time for the actual generation of animations or dealing with network protocols.
 
 
-#Installation and Usage
+#Getting Started
+##Setting up the hardware
 
-To use PixelBone, download it to your BeagleBone Black.
+##Installing the libraries
+To get started, visit our [Release Section](https://github.com/i3oot/libneopixel/releases) and download the latest ipk packages to your Beagle Bone Black. Then run:
 
-First, make sure that PixelBone compiles:
+    cd {path to the packages}
+    opkg install libneopixel*.ipk
 
-```sh
-make
-```
+Reboot your Beagle Bone Black and you are ready to rock your LED strip.     
+    
+#Package description
 
-Before PixelBone will function, you will need to replace the device tree
-file and reboot.
-
-There are two different dtb files in the `dirtrees` folder, one for the original BeagleBone, and one for the BeagleBone Black. There is also an overlay file for other operating systems (such as Arch Linux). Whichever you choose, place it in the proper folder. `/boot/` for the dtb file, or `/usr/lib/firmware/` for the overlay. Please check your distro to make sure this is correct.
-
-Reboot if you're using the dtb, or run the provided `dtbo_loader.sh` script if using the dtbo. 
-
-Connect a WS2811-based LED chain to the Beagle Bone. The strip must be running at the same voltage as the data signal. If you are using an external 5v supply for the LEDs, you'll need to use a level shifter or other technique to bring the BBB's 3.3v signals up to 5v.
-
-Once everything is connected, run the `rgb-test` program:
-
-```sh
-./examples/rgb-test
-```
-
-The LEDs should now be fading prettily. If not, go back and make
-sure everything is setup correctly.
-
-
-#Pin Mapping
-
-The mapping from PixelBone channel to BeagleBone GPIO pin:
-
-```
-		 PixelBone Channel Index
-	 Row  Pin#       P9        Pin#
-	  1    1                    2  
-	  2    3                    4  
-	  3    5                    6  
-	  4    7                    8 
-	  5    9                    10
-	  6    11                   12
-	  7    13                   14
-	  8    15                   16
-	  9    17                   18
-	  10   19                   20
-	  11   21            [0]    22
-	  12   23                   24
-	  13   25                   26
-	  14   27                   28
-	  15   29                   30
-	  16   31                   32
-	  17   33                   34
-	  18   35                   36
-	  19   37                   38
-	  20   39                   40
-	  21   41                   42
-	  22   43                   44
-	  23   45                   46
-
-```
-
-The numbers on the inside of each block indicate the PixelBone channel.
-
-
-#Implementation Notes
-
-The WS281x LED chips are built like shift registers and make for very easy LED strip construction.  The signals are duty-cycle modulated, with a 0 measuring 250 ns long and a 1 being 600 ns long, and 1250 ns between bits.  Since this doesn't map to normal SPI hardware and requires an 800 KHz bit clock, it is typically handled with a dedicated microcontroller or DMA hardware on something like the Teensy 3.
-
-However, the TI AM335x ARM Cortex-A8 in the BeagleBone has two programmable "microcontrollers" built into the CPU that can handle realtime tasks and also access the ARM's memory.  This allows things that might have been delegated to external devices to be handled without any additional hardware, and without the overhead of clocking data out the USB port.
-
-The frames are stored in memory as a series of 4-byte pixels in the order GRBA.  This means that it looks like this in RAM:
-
-`S0P0 S0P1 S0P2 ... etc`
-
-4 * 32 * length bytes are required per frame buffer.  The maximum frame rate also depends on the length.
+#Compile it yourself
 
 
 API
@@ -162,31 +99,3 @@ struct PixelBone_pixel_t{
 } __attribute__((__packed__));
 ```
 
-#Low level API
-
-If you want to poke at the PRU directly, there is a command structure
-shared in PRU DRAM that holds a pointer to the current frame buffer,
-the length in pixels, a command byte and a response byte.
-Once the PRU has cleared the command byte you are free to re-write the
-dma address or number of pixels.
-
-```cpp
-struct ws281x_command_t {
-	// in the DDR shared with the PRU
-	const uintptr_t pixels_dma;
-
-	// Length in pixels of the longest LED strip.
-	unsigned num_pixels;
-
-	// write 1 to start, 0xFF to abort. will be cleared when started
-	volatile unsigned command;
-
-	// will have a non-zero response written when done
-	volatile unsigned response;
-} __attribute__((__packed__));
-```
-
-Reference
-==========
-* http://www.adafruit.com/products/1138
-* http://www.adafruit.com/datasheets/WS2811.pdf
