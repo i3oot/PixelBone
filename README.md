@@ -25,9 +25,9 @@ The simplest way to setup your Beagle Bone Black to work with your LED strip is:
 3. connect (-) to DGND and (+) to VDD_5V of your Beagle Bone Black
 4. connect GPIO_02 on your Beagle Bone Black to DIN on your LED strip
 
-![Beagle Bone Black PinOut](http://insigntech.files.wordpress.com/2013/09/bbb_pinouts.jpg&imgrefurl=http://insigntech.wordpress.com/2013/09/23/beaglebone-black-pin-outs/&h=1287&w=1308&tbnid=9QJxDKgAoi-PIM:&zoom=1&docid=Ds0cxnCrsavSCM&ei=jgGLU_oXy8HSBazHgZgK&tbm=isch&client=ubuntu&iact=rc&uact=3&dur=1927&page=1&start=0&ndsp=16&ved=0CHwQrQMwDA)
+Refer to [Beagle Bone Black PinOut](http://insigntech.files.wordpress.com/2013/09/bbb_pinouts.jpg&imgrefurl=http://insigntech.wordpress.com/2013/09/23/beaglebone-black-pin-outs/&h=1287&w=1308&tbnid=9QJxDKgAoi-PIM:&zoom=1&docid=Ds0cxnCrsavSCM&ei=jgGLU_oXy8HSBazHgZgK&tbm=isch&client=ubuntu&iact=rc&uact=3&dur=1927&page=1&start=0&ndsp=16&ved=0CHwQrQMwDA).
 
-*WARNING*
+====== WARNING ======
 This setup can under some conditions damage your LEDs or Beagle Bone Black. Please refer to [Adafruit NeoPixel Überguide - Powering NeoPixels](https://learn.adafruit.com/adafruit-neopixel-uberguide/power) for details and advanced setups.
 
 ##Installing the libraries
