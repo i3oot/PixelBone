@@ -38,9 +38,19 @@ Reboot your Beagle Bone Black and you are ready to rock your LED strip.
 ###Hello world
     todo
 #Packages
-###Description
 
-###Compile it yourself
+######libpixel-devicetree (required)
+Installs the device tree file (am335x-boneblack.dtb) wich enables the PRU and maps GPIO_02 of your Beagle Bone Black.
+######libpixel (required)
+Installs the core shared objects and the PRU code into `/usr/lib` 
+######libpixel-dev
+Installs C++ development headers into `/usr/include/libneopixel`
+*This package is required for C++ development.*
+######libpixel-python
+Installs Python bindings into `/usr/lib/python2.7`
+*This package is required for Python development.*
+
+###Compile them yourself
 
     git clone git@github.com:i3oot/libneopixel
     cd libneopixel
