@@ -1,4 +1,4 @@
-Libneopixel gives you *dead easy* api access to [WS2811](http://www.adafruit.com/datasheets/WS2811.pdf)-based LED strips on your [Beagle Bone Black](http://beagleboard.org/Products/BeagleBone+Black) running the [Armstrong Distribution](http://www.angstrom-distribution.org/). It allows you to drive your LED strip with C++ or Python.  
+Libneopixel gives you *dead easy* api access to [WS2811](http://www.adafruit.com/datasheets/WS2811.pdf)-based LED strips on your [Beagle Bone Black](http://beagleboard.org/Products/BeagleBone+Black) running the bundeled [Armstrong Distribution](http://www.angstrom-distribution.org/). It allows you to drive your LED strip with C++ or Python.  
 
 Supported LED Strips are:
 
