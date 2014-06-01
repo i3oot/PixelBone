@@ -32,10 +32,8 @@ pushd dist
 popd
 
 
-<<<<<<< Updated upstream
-=======
 rm -rf libpixel-python/usr
-mkdir -p libpixel-python/usr/lib
+mkdir -p libpixel-python/usr/lib/python2.7
 cp ../_pixel.so libpixel-python/usr/lib/python2.7/
 cp ../pixel.py libpixel-python/usr/lib/python2.7/
 sed "s/%DATE%/$version/g" libpixel-python/CONTROL/control.template > libpixel-python/CONTROL/control
@@ -45,4 +43,3 @@ pushd dist
 ../ipkg-build ../libpixel-python .
 popd
 
->>>>>>> Stashed changes
