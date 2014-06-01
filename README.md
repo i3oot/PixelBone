@@ -37,7 +37,11 @@ To get started, visit our [Release Section](https://github.com/i3oot/libneopixel
     opkg install libneopixel*.ipk
 
 Reboot your Beagle Bone Black and you are ready to rock your LED strip.     
-    
+
+###Test your setup
+    todo
+###Hello world
+    todo
 #Package description
 
 #Compile it yourself
