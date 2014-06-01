@@ -39,7 +39,7 @@ The Hello World Examples turn all eight leds of an Adafruit NeoPixel Stick to br
 ```python
 from pixel import PixelBone_Pixel
 neoPixelStick = PixelBone_Pixel(8) 
-for led in range(0,8):
+for led in range(0,neoPixelStick.numPixels()):
     neoPixelStick.setPixelColor(led, 128, 128, 128)
 neoPixelStick.show()
 ```
@@ -48,7 +48,7 @@ neoPixelStick.show()
 #include <libneopixel/pixel.hpp>
 int main(void) {
   PixelBone_Pixel *const neoPixelStick = new PixelBone_Pixel(8);
-  for (unsigned led = 0; led < 8; p++) {
+  for (unsigned led = 0; led < neoPixelStick->numPixels(); p++) {
       neoPixelStick->setPixelColor(led, 128, 128, 128);
   }
   neoPixelStick->show();
