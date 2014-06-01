@@ -1,3 +1,5 @@
+#Overview
+
 Libneopixel gives you *dead easy* api access to [WS2811](http://www.adafruit.com/datasheets/WS2811.pdf)-based LED strips on your [Beagle Bone Black](http://beagleboard.org/Products/BeagleBone+Black) running the bundeled [Armstrong Distribution](http://www.angstrom-distribution.org/). It allows you to drive your LED strip with C++ or Python.  
 
 Supported LED Strips are:
@@ -8,13 +10,6 @@ Supported LED Strips are:
 4. [NeoPixel Ring](http://www.adafruit.com/products/1463)
 
 other WS2811-based LED strips will propably work too.
-
-#Overview
-
-This library is heavily based on the PixelBone library wich in turn is based on the LEDscape library. It is designed to control a single chain of WS2811-based LED modules from a BeagleBone Black. The timing has been updated and verified to work with both WS2812 and WS2812b chips. This version of the library uses a single PRU on the BeagleBone. This allows sending at about 60fps to strings of 512 pixels or at ~120fps for 256 pixels.
-
-The bit-unpacking is handled by the PRU, which allows PixelBone to take almost no cpu time to run, freeing up time for the actual generation of animations or dealing with network protocols.
-
 
 #Getting Started
 ###Setting up the hardware
@@ -42,13 +37,26 @@ Reboot your Beagle Bone Black and you are ready to rock your LED strip.
     todo
 ###Hello world
     todo
-#Package description
+#Packages
+###Description
 
-#Compile it yourself
+###Compile it yourself
+
+    git clone git@github.com:i3oot/libneopixel
+    cd libneopixel
+    sh build.sh
+
+Done! You will find the ipk packages under `ipk/dist`
+
+#References
+
+This library is heavily based on the PixelBone library wich in turn is based on the LEDscape library. It is designed to control a single chain of WS2811-based LED modules from a BeagleBone Black. The timing has been updated and verified to work with both WS2812 and WS2812b chips. This version of the library uses a single PRU on the BeagleBone. This allows sending at about 60fps to strings of 512 pixels or at ~120fps for 256 pixels.
+
+The bit-unpacking is handled by the PRU, which allows PixelBone to take almost no cpu time to run, freeing up time for the actual generation of animations or dealing with network protocols.
 
 
-API
-===
+###API
+
 
 `pixel.hpp` and `matrix.hpp` defines the API. The key components are:
 
