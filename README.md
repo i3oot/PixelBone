@@ -1,11 +1,12 @@
-# Abstract
-Libneopixel gives you *dead easy* api access to [WS2811](http://www.adafruit.com/datasheets/WS2811.pdf)-based LED strips on your [Beagle Bone Black](http://beagleboard.org/Products/BeagleBone+Black) running the [Armstrong Distribution](http://www.angstrom-distribution.org/). It allows you to drive your LED strip with C++ or Python code.  
+Libneopixel gives you *dead easy* api access to [WS2811](http://www.adafruit.com/datasheets/WS2811.pdf)-based LED strips on your [Beagle Bone Black](http://beagleboard.org/Products/BeagleBone+Black) running the [Armstrong Distribution](http://www.angstrom-distribution.org/). It allows you to drive your LED strip with C++ or Python.  
 
 Supported LED Strips are:
+
 1. [NeoPixel Digital RGB LED Strip 144 LED](http://www.adafruit.com/products/1506)
 2. [NeoPixel Digital RGB LED Weatherproof Strip 60 LED](http://www.adafruit.com/products/1461)
 3. [NeoPixel Stick](http://www.adafruit.com/products/1426)
 4. [NeoPixel Ring](http://www.adafruit.com/products/1463)
+
 other WS2811-based LED strips will propably work too.
 
 #Overview
@@ -17,6 +18,17 @@ The bit-unpacking is handled by the PRU, which allows PixelBone to take almost n
 
 #Getting Started
 ##Setting up the hardware
+The simplest way to setup your Beagle Bone Black to work with your LED strip is:
+
+1. use a 5V power supply suitable for your LED strip
+2. connect (-) to GND and (+) to VDC of your LED strip
+3. connect (-) to DGND and (+) to VDD_5V of your Beagle Bone Black
+4. connect GPIO_02 on your Beagle Bone Black to DIN on your LED strip
+
+![Beagle Bone Black PinOut]{http://www.google.de/imgres?imgurl=http%3A%2F%2Finsigntech.files.wordpress.com%2F2013%2F09%2Fbbb_pinouts.jpg&imgrefurl=http%3A%2F%2Finsigntech.wordpress.com%2F2013%2F09%2F23%2Fbeaglebone-black-pin-outs%2F&h=1287&w=1308&tbnid=9QJxDKgAoi-PIM%3A&zoom=1&docid=Ds0cxnCrsavSCM&ei=jgGLU_oXy8HSBazHgZgK&tbm=isch&client=ubuntu&iact=rc&uact=3&dur=1927&page=1&start=0&ndsp=16&ved=0CHwQrQMwDA}
+
+*WARNING*
+This setup can under some conditions damage your LEDs or Beagle Bone Black. Please refer to [Adafruit NeoPixel Überguide - Powering NeoPixels](https://learn.adafruit.com/adafruit-neopixel-uberguide/power) for details and advanced setups.
 
 ##Installing the libraries
 To get started, visit our [Release Section](https://github.com/i3oot/libneopixel/releases) and download the latest ipk packages to your Beagle Bone Black. Then run:
