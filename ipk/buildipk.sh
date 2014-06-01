@@ -24,6 +24,7 @@ mkdir -p libpixel/usr/lib
 cp ../*bin libpixel/usr/lib/
 cp ../*so libpixel/usr//lib/
 cp  ../am335x/app_loader/lib/*.so libpixel/usr/lib/
+ln libpixel/usr/lib/libpixel.so libpixel/usr/lib/libpixel.so.1 
 sed "s/%DATE%/$version/g" libpixel/CONTROL/control.template > libpixel/CONTROL/control
 
 
