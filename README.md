@@ -34,10 +34,11 @@ To get started, visit our [Release Section](https://github.com/i3oot/libneopixel
 Reboot your Beagle Bone Black and you are ready to rock your LED strip.     
 
 ###Hello world
+The Hello World Examples turn all eight leds of an Adafruit NeoPixel Stick to bright white.
 #### Python
 ```python
 from pixel import PixelBone_Pixel
-neoPixelStick = PixelBone_Pixel(8) #NeoPixel Stick has 8 leds
+neoPixelStick = PixelBone_Pixel(8) 
 for led in range(0,8):
     neoPixelStick.setPixelColor(led, 128, 128, 128)
 neoPixelStick.show()
