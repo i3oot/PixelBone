@@ -33,10 +33,30 @@ To get started, visit our [Release Section](https://github.com/i3oot/libneopixel
 
 Reboot your Beagle Bone Black and you are ready to rock your LED strip.     
 
-###Test your setup
-    todo
 ###Hello world
-    todo
+#### Python
+```python
+from pixel import PixelBone_Pixel
+neoPixelStick = PixelBone_Pixel(8) #NeoPixel Stick has 8 leds
+for led in range(0,8):
+    neoPixelStick.setPixelColor(led, 128, 128, 128)
+neoPixelStick.show()
+```
+#### C++
+```cpp
+#include <libneopixel/pixel.hpp>
+int main(void) {
+  PixelBone_Pixel *const neoPixelStick = new PixelBone_Pixel(8);
+  for (unsigned led = 0; led < 8; p++) {
+      neoPixelStick->setPixelColor(led, 128, 128, 128);
+  }
+  neoPixelStick->show();
+  delete neoPixelStick;
+  return 0;
+}
+
+```
+    
 #Packages
 
 ######libpixel-devicetree (required)
