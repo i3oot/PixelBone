@@ -43,3 +43,12 @@ pushd dist
 ../ipkg-build ../libpixel-python .
 popd
 
+rm -rf libpixel-devicetree/boot
+mkdir -p libpixel-devicetree/boot
+cp ../dirtree/am335x-boneblack.dtb libpixel-devicetree/boot/
+sed "s/%DATE%/$version/g" libpixel-devicetree/CONTROL/control.template > libpixel-devicetree/CONTROL/control
+
+
+pushd dist
+../ipkg-build ../libpixel-devicetree .
+popd
