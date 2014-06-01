@@ -17,7 +17,7 @@ The bit-unpacking is handled by the PRU, which allows PixelBone to take almost n
 
 
 #Getting Started
-##Setting up the hardware
+###Setting up the hardware
 The simplest way to setup your Beagle Bone Black to work with your LED strip is:
 
 1. use a 5V power supply suitable for your LED strip
@@ -30,7 +30,7 @@ Refer to [Beagle Bone Black PinOut](http://insigntech.files.wordpress.com/2013/0
 > ###### WARNING ######
 > This setup can under some conditions damage your LEDs or Beagle Bone Black. Please refer to [Adafruit NeoPixel Überguide - Powering NeoPixels](https://learn.adafruit.com/adafruit-neopixel-uberguide/power) for details and advanced setups.
 
-##Installing the libraries
+###Installing the libraries
 To get started, visit our [Release Section](https://github.com/i3oot/libneopixel/releases) and download the latest ipk packages to your Beagle Bone Black. Then run:
 
     cd {path to the packages}
