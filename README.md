@@ -29,7 +29,7 @@ Refer to [Beagle Bone Black PinOut](http://insigntech.files.wordpress.com/2013/0
 To get started, visit our [Release Section](https://github.com/i3oot/libneopixel/releases) and download the latest ipk packages to your Beagle Bone Black. Then run:
 
     cd {path to the packages}
-    opkg install --force-overwrite libneopixel-devicetree*ipkg
+    opkg install --force-overwrite libneopixel-devicetree*ipk
     opkg install libneopixel_*.ipk
     #for python development:
     opkg install libneopixel-python*.ipk
@@ -39,7 +39,7 @@ To get started, visit our [Release Section](https://github.com/i3oot/libneopixel
 or install everything with:
 
     cd {path to the packages}
-    opkg install --force-overwrite libneopixel*ipkg
+    opkg install --force-overwrite libneopixel*ipk
 
 
 Reboot your Beagle Bone Black and you are ready to rock your LED strip.     
