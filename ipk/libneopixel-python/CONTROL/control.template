@@ -1,10 +1,10 @@
-Package: libpixel
+Package: libneopixel-python
 Version: 1.0-%DATE%
-Description: Light weight library to control WS2811/WS2812 based LEDS and LED Strips with your BeagleBone Black
+Description: Light weight library to control WS2811/WS2812 based LEDS and LED Strips with your BeagleBone Black Python Bindings
 Architecture: armv7a
 Section: extra
 Priority: optional
 Maintainer: i3oot <tobias.waller@googlemail.com>
 Homepage: https://github.com/i3oot/PixelBone
-Depends: libpixel-devicetree(=1.0-%DATE%)
+Depends: libneopixel(=1.0-%DATE%), libpython2.7-1.0 
 Source: https://github.com/i3oot/PixelBone

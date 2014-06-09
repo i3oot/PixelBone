@@ -1,10 +1,10 @@
-Package: libpixel-dev
-Version: 1.0-20000101001614
+Package: libneopixel-dev
+Version: 1.0-20140609110222
 Description: Light weight library to control WS2811/WS2812 based LEDS and LED Strips with your BeagleBone Black - Development Headers 
 Architecture: armv7a
 Section: extra
 Priority: optional
 Maintainer: i3oot <tobias.waller@googlemail.com>
 Homepage: https://github.com/i3oot/PixelBone
-Depends: libpixel(=1.0-20000101001614)
+Depends: libneopixel(=1.0-20140609110222)
 Source: https://github.com/i3oot/PixelBone
