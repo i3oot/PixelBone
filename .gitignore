@@ -23,3 +23,13 @@ opc-rx
 am335x/app_loader/lib/
 ipk/libpixel/CONTROL/control
 ipk/libpixel-dev/CONTROL/control
+am335x/app_loader/lib/libprussdrvd.so
+ipk/libneopixel-dev/CONTROL/control
+ipk/libneopixel-devicetree/CONTROL/control
+ipk/libneopixel-python/CONTROL/control
+ipk/libneopixel/CONTROL/control
+examples/clear
+ipk/libneopixel-python/usr/
+ipk/libneopixel/usr/
+pixel.py
+pixel_wrap.cxx
