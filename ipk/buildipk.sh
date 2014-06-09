@@ -46,7 +46,7 @@ popd
 
 rm -rf libneopixel-devicetree/boot
 mkdir -p libneopixel-devicetree/boot
-cp ../dirtree/am335x-boneblack.dtb libneopixel-devicetree/boot/
+cp ../dirtrees/am335x-boneblack.dtb libneopixel-devicetree/boot/
 sed "s/%DATE%/$version/g" libneopixel-devicetree/CONTROL/control.template > libneopixel-devicetree/CONTROL/control
 
 
